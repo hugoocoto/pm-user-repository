@@ -1,0 +1,29 @@
+name: Validate
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Lua
+        run: sudo apt-get update && sudo apt-get install -y lua5.4
+      - name: Check Lua syntax
+        run: |
+          errors=0
+          while IFS= read -r -d '' file; do
+            luac -p "$file" || { echo "::error file=$file::Syntax error in $file"; errors=$((errors+1)); }
+          done < <(find . -name '*.lua' -not -path './.git/*' -print0)
+          exit $errors
+      - name: Check root-level structure
+        run: |
+          for f in *.lua; do
+            if [ "$f" != "ur.lua" ]; then
+              echo "::error::$f should be in a user directory, not at root"
+              exit 1
+            fi
+          done

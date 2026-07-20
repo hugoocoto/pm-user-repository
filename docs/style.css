@@ -6,24 +6,113 @@ body {
   line-height: 1.6;
 }
 
+.search {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+.search:focus {
+  border-color: #4a90d9;
+  box-shadow: 0 0 0 2px rgba(74,144,217,0.2);
+}
+
 .layout {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
+  position: relative;
 }
 
 #package-list {
   flex: 0 0 220px;
   border-right: 1px solid #ccc;
   padding-right: 1rem;
+  transition: flex 0.2s, padding 0.2s, opacity 0.2s;
+  overflow-y: auto;
+  max-height: calc(100vh - 220px);
+}
+
+#package-list.collapsed {
+  flex: 0 0 0;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#package-list h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#package-list .count {
+  font-weight: normal;
+  font-size: 0.8rem;
+  color: #666;
 }
 
 #package-list ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+#package-list li + li {
+  margin-top: 0.25rem;
 }
 
 #package-list a {
   text-decoration: none;
+  display: block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: #1a0dab;
+  font-size: 0.9rem;
+}
+
+#package-list a:hover {
+  background: #eee;
+}
+
+#package-list a.active {
+  background: #e0e7ff;
+  color: #1a0dab;
+  font-weight: 600;
+}
+
+#package-list .empty {
+  color: #999;
+  font-style: italic;
+  padding: 0.25rem 0.5rem;
+}
+
+.toggle-btn {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  color: #555;
+}
+
+.toggle-btn:hover {
+  background: #eee;
+}
+
+.toggle-btn:focus-visible {
+  outline: 2px solid #4a90d9;
+  outline-offset: 2px;
 }
 
 #package-detail {

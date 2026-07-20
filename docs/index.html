@@ -13,6 +13,8 @@
        <a href="https://github.com/hugoocoto/pm">pm</a>.</p>
   </header>
 
+  <input type="search" id="search" class="search" placeholder="Search packages..." aria-label="Search packages">
+
   <div class="layout">
     <nav id="package-list" aria-label="Packages"></nav>
     <main id="package-detail"></main>
@@ -22,6 +24,7 @@
   <script>
     var BASE = 'https://raw.githubusercontent.com/hugoocoto/pm-user-repository/refs/heads/main';
     var allPackages = [];
+    var sidebarCollapsed = false;
 
     function pkgId(pkg) { return pkg.user + '/' + pkg.dir; }
 
@@ -29,6 +32,36 @@
       var res = await fetch(BASE + '/packages.json');
       allPackages = (await res.json()).packages;
       renderList(allPackages);
+
+      var search = document.getElementById('search');
+      var sidebar = document.getElementById('package-list');
+
+      search.addEventListener('input', function () {
+        var q = search.value.toLowerCase();
+        var filtered = allPackages.filter(function (p) {
+          return pkgId(p).toLowerCase().includes(q)
+              || p.description.toLowerCase().includes(q);
+        });
+        renderList(filtered);
+      });
+
+      search.addEventListener('keydown', function (e) {
+        var links = sidebar.querySelectorAll('a');
+        if (links.length === 0) return;
+        var idx = Array.prototype.indexOf.call(links, document.querySelector('#package-list a.active'));
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          var next = Math.min(idx + 1, links.length - 1);
+          links[next].focus();
+          links[next].click();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          var prev = Math.max(idx - 1, 0);
+          links[prev].focus();
+          links[prev].click();
+        }
+      });
+
       window.addEventListener('hashchange', loadFromHash);
       loadFromHash();
       if (!window.location.hash && allPackages.length) loadPackage(allPackages[0]);
@@ -36,23 +69,58 @@
 
     function renderList(packages) {
       var nav = document.getElementById('package-list');
-      nav.innerHTML = '<h2>Packages</h2>';
+      nav.innerHTML = '<h2>Packages <span class="count">(' + packages.length + ')</span>'
+        + ' <button class="toggle-btn" id="toggle-btn" aria-label="Toggle sidebar">'
+        + (sidebarCollapsed ? '\u25B6' : '\u2630') + '</button></h2>';
       var list = document.createElement('ul');
-      for (var i = 0; i < packages.length; i++) {
-        var pkg = packages[i];
-        var li = document.createElement('li');
-        var a = document.createElement('a');
-        a.href = '#' + pkgId(pkg);
-        a.textContent = pkg.user + '/' + pkg.dir;
-        li.appendChild(a);
-        list.appendChild(li);
+      if (packages.length === 0) {
+        var empty = document.createElement('li');
+        empty.className = 'empty';
+        empty.textContent = 'No packages found';
+        list.appendChild(empty);
+      } else {
+        for (var i = 0; i < packages.length; i++) {
+          var pkg = packages[i];
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = '#' + pkgId(pkg);
+          a.textContent = pkgId(pkg);
+          li.appendChild(a);
+          list.appendChild(li);
+        }
       }
       nav.appendChild(list);
+
+      if (sidebarCollapsed) {
+        nav.classList.add('collapsed');
+      } else {
+        nav.classList.remove('collapsed');
+      }
+
+      markActive();
+
+      var btn = document.getElementById('toggle-btn');
+      btn.addEventListener('click', function () {
+        sidebarCollapsed = !sidebarCollapsed;
+        nav.classList.toggle('collapsed');
+        btn.textContent = sidebarCollapsed ? '\u25B6' : '\u2630';
+      });
+
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { markActive(); });
+      });
+    }
+
+    function markActive() {
+      var hash = window.location.hash.slice(1);
+      document.querySelectorAll('#package-list a').forEach(function (a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + hash);
+      });
     }
 
     async function loadPackage(pkg) {
       var detail = document.getElementById('package-detail');
-      detail.innerHTML = '<p>Loading…</p>';
+      detail.innerHTML = '<p>Loading\u2026</p>';
 
       var html = '<h2>' + pkgId(pkg) + '</h2>';
       html += '<dl>' +
@@ -76,6 +144,7 @@
       if (!hash) return;
       var pkg = allPackages.find(function(p) { return pkgId(p) === hash; });
       if (pkg) loadPackage(pkg);
+      markActive();
     }
 
     init();

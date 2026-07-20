@@ -28,6 +28,10 @@ body {
   position: relative;
 }
 
+.sidebar-region {
+  display: flex;
+}
+
 #sidebar {
   width: 220px;
   display: flex;
@@ -99,18 +103,14 @@ body {
 }
 
 .toggle-btn {
+  border: none;
   background: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
   line-height: 1;
   padding: 0.25rem 0.5rem;
   color: #555;
-}
-
-.toggle-btn:hover {
-  background: #eee;
+  align-self: flex-start;
 }
 
 .toggle-btn:focus-visible {

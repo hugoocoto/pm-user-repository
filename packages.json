@@ -1,0 +1,18 @@
+{
+  "packages": [
+    { "user": "hugoocoto", "dir": "b",           "file": "b.lua",           "description": "b CLI tool" },
+    { "user": "hugoocoto", "dir": "dv",          "file": "dv.lua",          "description": "dv directory viewer" },
+    { "user": "hugoocoto", "dir": "eqnx",        "file": "eqnx.lua",        "description": "eqnx" },
+    { "user": "hugoocoto", "dir": "fetch",       "file": "fetch.lua",       "description": "fetch" },
+    { "user": "hugoocoto", "dir": "helium",      "file": "helium.lua",      "description": "Helium 0.14.5.1 AppImage" },
+    { "user": "hugoocoto", "dir": "nvim-nightly","file": "nvim.lua",        "description": "Neovim nightly AppImage" },
+    { "user": "hugoocoto", "dir": "pdfjoin",     "file": "pdfjoin.lua",     "description": "pdfjoin PDF merging tool" },
+    { "user": "hugoocoto", "dir": "st",          "file": "st.lua",          "description": "st simple terminal" },
+    { "user": "hugoocoto", "dir": "tetris",      "file": "tetris.lua",      "description": "tetris" },
+    { "user": "hugoocoto", "dir": "todo",        "file": "todo.lua",        "description": "todo" },
+    { "user": "hugoocoto", "dir": "vicel",       "file": "vicel.lua",       "description": "vicel" },
+    { "user": "hugoocoto", "dir": "wallpaper",   "file": "wallpaper.lua",   "description": "wallpaper binary" },
+    { "user": "hugoocoto", "dir": "yaci",        "file": "yaci.lua",        "description": "yaci" },
+    { "user": "hugoocoto", "dir": "zrun",        "file": "zrun.lua",        "description": "zrun" }
+  ]
+}

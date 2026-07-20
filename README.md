@@ -4,6 +4,7 @@ Community registry of user-contributed package definitions for
 [pm](https://github.com/hugoocoto/pm).
 
 ![Validate](https://github.com/hugoocoto/pm-user-repository/actions/workflows/validate.yml/badge.svg)
+[![Docs](https://img.shields.io/badge/docs-online-blue)](https://hugoocoto.github.io/pm-user-repository/)
 
 ## How it works
 
@@ -15,9 +16,60 @@ Community registry of user-contributed package definitions for
    safely, and returns the table.
 4. The returned table is consumed by pm to install the package.
 
-## Package format
+## Usage
 
-Each `.lua` file in a user directory must return a table describing how to
+1. Download the UR module:
+
+```sh
+mkdir -p ~/.config/pm && curl -o ~/.config/pm/ur.lua https://raw.githubusercontent.com/hugoocoto/pm-user-repository/refs/heads/main/ur.lua
+```
+
+2. Include it in your pm config (`init.lua`):
+
+```lua
+local ur = require("ur")
+```
+
+3. Add packages from any user in this repository:
+
+```lua
+Packages = {
+    ur.Fetch { user = "hugoocoto", file = "nvim-nightly/nvim.lua" },
+    ur.Fetch { user = "hugoocoto", file = "helium/helium.lua" },
+}
+```
+
+## Available packages
+
+| User | File | Package |
+|------|------|---------|
+| hugoocoto | `b/b.lua` | `b` CLI tool |
+| hugoocoto | `dv/dv.lua` | `dv` directory viewer |
+| hugoocoto | `eqnx/eqnx.lua` | `eqnx` |
+| hugoocoto | `fetch/fetch.lua` | `fetch` |
+| hugoocoto | `helium/helium.lua` | Helium 0.14.5.1 AppImage |
+| hugoocoto | `nvim-nightly/nvim.lua` | Neovim nightly AppImage |
+| hugoocoto | `pdfjoin/pdfjoin.lua` | `pdfjoin` PDF merging tool |
+| hugoocoto | `st/st.lua` | `st` simple terminal |
+| hugoocoto | `tetris/tetris.lua` | `tetris` |
+| hugoocoto | `todo/todo.lua` | `todo` |
+| hugoocoto | `vicel/vicel.lua` | `vicel` |
+| hugoocoto | `wallpaper/wallpaper.lua` | `wallpaper` binary |
+| hugoocoto | `yaci/yaci.lua` | `yaci` |
+| hugoocoto | `zrun/zrun.lua` | `zrun` |
+
+## How to collaborate
+
+1. Fork this repository.
+2. Create a directory named after your GitHub username.
+3. Add your `.lua` config files inside it. You may organize them into subdirectories for different tools or categories (e.g., `username/toolname/toolname.lua`).
+4. Create a pull request — the PR template will guide you through the checklist.
+5. Pull requests are automatically validated (Lua syntax check, structure check).
+   The pm team will review and merge or request changes.
+
+### Package format
+
+Each `.lua` file inside your user directory must return a table describing how to
 download, build, and install a package. The table supports these fields:
 
 | Field | Required | Description |
@@ -40,50 +92,13 @@ return {
 }
 ```
 
-## Usage
-
-1. Download the UR module:
-
-```sh
-mkdir -p ~/.config/pm && curl -o ~/.config/pm/ur.lua https://raw.githubusercontent.com/hugoocoto/pm-user-repository/refs/heads/main/ur.lua
-```
-
-2. Include it in your pm config (`init.lua`):
-
-```lua
-local ur = require("ur")
-```
-
-3. Add packages from any user in this repository:
-
-```lua
-Packages = {
-    ur.Fetch { user = "hugoocoto", file = "nvim.lua" },
-    ur.Fetch { user = "hugoocoto", file = "helium.lua" },
-}
-```
-
-## Available packages
-
-| User | File | Package |
-|------|------|---------|
-| hugoocoto | `nvim.lua` | Neovim nightly AppImage |
-| hugoocoto | `helium.lua` | Helium 0.14.5.1 AppImage |
-
-## How to collaborate
-
-1. Fork this repository.
-2. Create a directory named after your GitHub username.
-3. Add your `.lua` config files inside it (see the [Package format](#package-format) section above).
-4. Create a pull request — the PR template will guide you through the checklist.
-5. Pull requests are automatically validated (Lua syntax check, structure check).
-   The pm team will review and merge or request changes.
-
 ### Guidelines
 
 - Name your directory exactly after your GitHub username.
+- You may place a `README.md` (case-sensitive) alongside your `.lua` file to document the package — it will be rendered on the [docs page](https://hugoocoto.github.io/pm-user-repository/).
 - Ensure your Lua files are syntactically valid and return a table.
 - Test your config locally before submitting.
 - Do **not** include sensitive data (tokens, passwords, private keys).
 - Only `ur.lua` lives at the root — all other `.lua` files must be inside a user directory.
+- You may create subdirectories inside your user directory to organize packages by tool or category (e.g., `username/toolname/toolname.lua`).
 - If you are updating an existing file, explain what changed in the PR description.

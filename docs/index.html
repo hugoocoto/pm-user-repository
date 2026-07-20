@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pm User Repository</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>pm User Repository</h1>
+    <p>Community registry of user-contributed package definitions for
+       <a href="https://github.com/hugoocoto/pm">pm</a>.</p>
+  </header>
+
+  <div class="layout">
+    <nav id="package-list" aria-label="Packages"></nav>
+    <main id="package-detail"></main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    var BASE = 'https://raw.githubusercontent.com/hugoocoto/pm-user-repository/refs/heads/main';
+    var allPackages = [];
+
+    function pkgId(pkg) { return pkg.user + '/' + pkg.dir; }
+
+    async function init() {
+      var res = await fetch(BASE + '/packages.json');
+      allPackages = (await res.json()).packages;
+      renderList(allPackages);
+      window.addEventListener('hashchange', loadFromHash);
+      loadFromHash();
+      if (!window.location.hash && allPackages.length) loadPackage(allPackages[0]);
+    }
+
+    function renderList(packages) {
+      var nav = document.getElementById('package-list');
+      nav.innerHTML = '<h2>Packages</h2>';
+      var list = document.createElement('ul');
+      for (var i = 0; i < packages.length; i++) {
+        var pkg = packages[i];
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = '#' + pkgId(pkg);
+        a.textContent = pkg.user + '/' + pkg.dir;
+        li.appendChild(a);
+        list.appendChild(li);
+      }
+      nav.appendChild(list);
+    }
+
+    async function loadPackage(pkg) {
+      var detail = document.getElementById('package-detail');
+      detail.innerHTML = '<p>Loading…</p>';
+
+      var html = '<h2>' + pkgId(pkg) + '</h2>';
+      html += '<dl>' +
+        '<dt>File</dt><dd><code>' + pkg.dir + '/' + pkg.file + '</code></dd>' +
+        '<dt>Description</dt><dd>' + pkg.description + '</dd>' +
+        '</dl>';
+
+      try {
+        var res = await fetch(BASE + '/' + pkg.user + '/' + pkg.dir + '/README.md');
+        if (res.ok) {
+          var md = await res.text();
+          html += '<hr><div class="readme">' + marked.parse(md) + '</div>';
+        }
+      } catch (e) {}
+
+      detail.innerHTML = html;
+    }
+
+    function loadFromHash() {
+      var hash = window.location.hash.slice(1);
+      if (!hash) return;
+      var pkg = allPackages.find(function(p) { return pkgId(p) === hash; });
+      if (pkg) loadPackage(pkg);
+    }
+
+    init();
+  </script>
+</body>
+</html>

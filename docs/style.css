@@ -28,22 +28,25 @@ body {
   position: relative;
 }
 
-#package-list {
-  flex: 0 0 220px;
-  border-right: 1px solid #ccc;
-  padding-right: 1rem;
-  transition: flex 0.2s, padding 0.2s, opacity 0.2s;
-  overflow-y: auto;
-  max-height: calc(100vh - 220px);
+#sidebar {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
 }
 
-#package-list.collapsed {
-  flex: 0 0 0;
-  padding: 0;
-  border: none;
+#sidebar.collapsed {
+  width: 0;
   overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
+}
+
+#sidebar .search {
+  margin-bottom: 0.5rem;
+}
+
+#package-list {
+  overflow-y: auto;
+  flex: 1;
+  max-height: calc(100vh - 200px);
 }
 
 #package-list h2 {

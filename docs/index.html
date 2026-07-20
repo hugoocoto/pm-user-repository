@@ -13,10 +13,11 @@
        <a href="https://github.com/hugoocoto/pm">pm</a>.</p>
   </header>
 
-  <input type="search" id="search" class="search" placeholder="Search packages..." aria-label="Search packages">
-
   <div class="layout">
-    <nav id="package-list" aria-label="Packages"></nav>
+    <aside id="sidebar">
+      <input type="search" id="search" class="search" placeholder="Search packages..." aria-label="Search packages">
+      <nav id="package-list" aria-label="Packages"></nav>
+    </aside>
     <main id="package-detail"></main>
   </div>
 
@@ -91,10 +92,11 @@
       }
       nav.appendChild(list);
 
+      var sidebar = document.getElementById('sidebar');
       if (sidebarCollapsed) {
-        nav.classList.add('collapsed');
+        sidebar.classList.add('collapsed');
       } else {
-        nav.classList.remove('collapsed');
+        sidebar.classList.remove('collapsed');
       }
 
       markActive();
@@ -102,7 +104,7 @@
       var btn = document.getElementById('toggle-btn');
       btn.addEventListener('click', function () {
         sidebarCollapsed = !sidebarCollapsed;
-        nav.classList.toggle('collapsed');
+        sidebar.classList.toggle('collapsed');
         btn.textContent = sidebarCollapsed ? '\u25B6' : '\u2630';
       });
 
@@ -123,18 +125,24 @@
       detail.innerHTML = '<p>Loading\u2026</p>';
 
       var html = '<h2>' + pkgId(pkg) + '</h2>';
-      html += '<dl>' +
-        '<dt>File</dt><dd><code>' + pkg.dir + '/' + pkg.file + '</code></dd>' +
-        '<dt>Description</dt><dd>' + pkg.description + '</dd>' +
-        '</dl>';
 
       try {
         var res = await fetch(BASE + '/' + pkg.user + '/' + pkg.dir + '/README.md');
         if (res.ok) {
           var md = await res.text();
-          html += '<hr><div class="readme">' + marked.parse(md) + '</div>';
+          html += '<div class="readme">' + marked.parse(md) + '</div>';
+        } else {
+          html += '<dl>' +
+            '<dt>File</dt><dd><code>' + pkg.dir + '/' + pkg.file + '</code></dd>' +
+            '<dt>Description</dt><dd>' + pkg.description + '</dd>' +
+            '</dl>';
         }
-      } catch (e) {}
+      } catch (e) {
+        html += '<dl>' +
+          '<dt>File</dt><dd><code>' + pkg.dir + '/' + pkg.file + '</code></dd>' +
+          '<dt>Description</dt><dd>' + pkg.description + '</dd>' +
+          '</dl>';
+      }
 
       detail.innerHTML = html;
     }

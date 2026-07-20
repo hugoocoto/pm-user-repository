@@ -1,11 +1,17 @@
 # zrun
 
-Zig-based tool. See upstream repo at [hugoocoto/zrun](https://github.com/hugoocoto/zrun).
+A fuzzy-finding application launcher — something between dmenu, rofi, and tofi. Written in Zig with Raylib.
 
-## Usage
+## Installation
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "zrun/zrun.lua" }
 ```
 
-Compiled from source with `zig build`. The artifact is at `zig-out/bin/zrun`.
+## Usage
+
+```
+zrun
+```
+
+Opens a search bar to fuzzy-find and launch applications. Sort order is based on a matching-gap heuristic.

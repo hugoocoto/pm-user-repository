@@ -1,12 +1,11 @@
 # Helium
 
-Third-party desktop client for Imput. Distributed as a pre-built AppImage (v0.14.5.1).
-See upstream releases at [imputnet/helium-linux](https://github.com/imputnet/helium-linux).
+A third-party desktop client for [Imput](https://imput.com). Distributed as a pre-built AppImage (v0.14.5.1).
 
-## Usage
+## Installation
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "helium/helium.lua" }
 ```
 
-Downloads the AppImage and makes it executable.
+Installs the AppImage and makes it executable. Run `helium` to launch.

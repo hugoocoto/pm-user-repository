@@ -1,11 +1,29 @@
 # b
 
-CLI tool. See upstream repo at [hugoocoto/b](https://github.com/hugoocoto/b).
+A minimal but customizable web browser powered by a Chromium-based engine (Qt6).
 
-## Usage
+## Installation
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "b/b.lua" }
 ```
 
-Builds both the `b` binary and a desktop entry file.
+## Usage
+
+```
+b <url>       Open a URL
+b --help      Show help
+```
+
+### Keybindings
+
+| Key     | Action               |
+| :------ | :------------------- |
+| `Ctrl-l` | Open search input   |
+| `Ctrl-h` | Open history nav    |
+| `Ctrl-H` | Load stored history |
+| `Ctrl-t` | Toggle URL bar      |
+| `Ctrl-[` | Go back in history  |
+| `Ctrl-]` | Go forward in history |
+
+Look and keybinds can be customized in `config.h` (requires rebuild).

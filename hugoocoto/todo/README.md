@@ -1,11 +1,20 @@
 # todo
 
-Command-line task management tool. See upstream repo at [hugoocoto/todo](https://github.com/hugoocoto/todo).
+A simple command-line task manager for the terminal. Add tasks with dates and retrieve them by time frames (e.g. a week). Also includes an HTTP server for web-based visualization.
 
-## Usage
+## Installation
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "todo/todo.lua" }
 ```
 
-Compiled from source with `make`.
+## Usage
+
+```
+todo -help           Show help
+todo                 Interactive mode
+todo -serve          Start HTTP web UI server
+todo -die            Kill the daemon
+```
+
+The `-serve` command starts a daemon that serves a web-based task visualizer. Use `xdg-open $(todo -serve)` to open it in a browser.

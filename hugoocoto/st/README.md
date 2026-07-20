@@ -1,12 +1,17 @@
 # st
 
-Simple terminal from [suckless](https://st.suckless.org/), with custom patches by hugoocoto.
-See upstream repo at [hugoocoto/st](https://github.com/hugoocoto/st).
+A custom build of the [suckless simple terminal](https://st.suckless.org/) with patches for alpha transparency and custom color scheme.
 
-## Usage
+## Installation
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "st/st.lua" }
 ```
 
-Compiled from source with `make`.
+## Usage
+
+```
+st
+```
+
+A lightweight X11 terminal emulator. Configure appearance and behavior in `config.def.h` (requires rebuild).

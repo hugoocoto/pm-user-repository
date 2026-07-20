@@ -1,11 +1,12 @@
 # eqnx
 
-See upstream repo at [hugoocoto/eqnx](https://github.com/hugoocoto/eqnx).
+# THIS REPO IS ARCHIVED DUE TO STRUCTURAL ISSUES
 
-## Usage
+A plugin-based application environment and Wayland graphics library for composing applications by merging independent plugins. Single-threaded, event-based.
+
+## Installation
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "eqnx/eqnx.lua" }
 ```
 
-Compiled from source with `make`.

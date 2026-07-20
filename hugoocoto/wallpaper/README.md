@@ -1,11 +1,17 @@
 # wallpaper
 
-Desktop wallpaper tool. Pre-built binary from [hugoocoto/wallpapers](https://github.com/hugoocoto/wallpapers).
+A desktop wallpaper utility backed by swaybg — set and manage wallpapers on Wayland compositors.
 
-## Usage
+## Installation
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "wallpaper/wallpaper.lua" }
 ```
 
-Downloads the latest binary release and makes it executable.
+## Usage
+
+```
+wallpaper <image-path>
+```
+
+Sets the given image as the desktop wallpaper using swaybg.

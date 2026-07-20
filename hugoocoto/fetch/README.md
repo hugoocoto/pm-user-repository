@@ -1,11 +1,17 @@
 # fetch
 
-System information fetch tool. See upstream repo at [hugoocoto/fetch](https://github.com/hugoocoto/fetch).
+A suckless-style system information fetcher — a lightweight, customizable alternative to neofetch. Inspired by macchina and hfetch.
 
-## Usage
+## Installation
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "fetch/fetch.lua" }
 ```
 
-Compiled from source with `make`.
+## Usage
+
+```
+fetch
+```
+
+Displays system info (OS, kernel, uptime, packages, shell, etc.) in the terminal. Modify `config.h` to customize the output (requires rebuild).

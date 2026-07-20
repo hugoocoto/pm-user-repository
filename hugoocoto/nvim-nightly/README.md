@@ -1,11 +1,17 @@
 # Neovim Nightly
 
-Bleeding-edge nightly build of [Neovim](https://neovim.io/), distributed as an AppImage.
+Bleeding-edge nightly build of [Neovim](https://neovim.io/), distributed as an AppImage. Updated automatically to the latest nightly release.
 
-## Usage
+## Installation
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "nvim-nightly/nvim.lua" }
 ```
 
-Downloads the latest nightly AppImage and makes it executable.
+## Usage
+
+```
+nvim [file...]
+```
+
+A modern, extensible terminal editor with Lua scripting, built-in LSP, treesitter, and more.

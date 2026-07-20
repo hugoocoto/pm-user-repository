@@ -9,9 +9,9 @@ Community registry of user-contributed package definitions for
 
 1. **`ur.lua`** (the "User Repository" module) is downloaded and placed in your
    pm config directory.
-2. Your pm `init.lua` requires `ur.lua` and calls `Fetch{ ... }` for each
+2. Your pm `init.lua` requires `ur.lua` and calls `ur.Fetch{ ... }` for each
    package you want.
-3. `Fetch` downloads the raw Lua file from this repository, executes it
+3. `ur.Fetch` downloads the raw Lua file from this repository, executes it
    safely, and returns the table.
 4. The returned table is consumed by pm to install the package.
 
@@ -51,15 +51,15 @@ mkdir -p ~/.config/pm && curl -o ~/.config/pm/ur.lua https://raw.githubuserconte
 2. Include it in your pm config (`init.lua`):
 
 ```lua
-Fetch = require 'ur'
+local ur = require("ur")
 ```
 
 3. Add packages from any user in this repository:
 
 ```lua
 Packages = {
-    Fetch { user = "hugoocoto", file = "nvim.lua" },
-    Fetch { user = "hugoocoto", file = "helium.lua" },
+    ur.Fetch { user = "hugoocoto", file = "nvim.lua" },
+    ur.Fetch { user = "hugoocoto", file = "helium.lua" },
 }
 ```
 

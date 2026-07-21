@@ -2,11 +2,17 @@
 
 Command-line task manager for the terminal. Add tasks with dates, retrieve them by time frames (week, month, etc.). Includes an HTTP server for web-based visualization. Source at [hugoocoto/todo](https://github.com/hugoocoto/todo).
 
+![Screenshot](https://raw.githubusercontent.com/hugoocoto/todo/main/images/2026-04-29_09:50:08.png)
+
+![Web UI](https://raw.githubusercontent.com/hugoocoto/todo/main/images/serve1.png)
+
+**Tech stack:** C, HTTP server (built-in).
+
+**Type:** CLI/TUI command-line tool with web UI.
+
 ## Install
 
-```lua
 ur.Fetch { user = "hugoocoto", file = "todo/todo.lua" }
-```
 
 ## Use
 

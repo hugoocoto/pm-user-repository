@@ -2,11 +2,13 @@
 
 Yet Another Calculator Interpreter: an interactive REPL for evaluating mathematical and text expressions. Supports FFI to call C library functions. Source at [hugoocoto/yaci](https://github.com/hugoocoto/yaci).
 
+**Tech stack:** C, flex + bison, GNU readline, libffi.
+
+**Type:** CLI REPL interpreter.
+
 ## Install
 
-```lua
 ur.Fetch { user = "hugoocoto", file = "yaci/yaci.lua" }
-```
 
 ## Use
 

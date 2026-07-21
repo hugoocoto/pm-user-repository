@@ -1,12 +1,14 @@
 # pdfjoin
 
-Merge multiple PDF files into one, preserving existing outlines and bookmarks. Written in Python. Source at [hugoocoto/pdfjoin](https://github.com/hugoocoto/pdfjoin). Depends on [pypdf](https://pypi.org/project/pypdf/).
+Merge multiple PDF files into one while preserving existing outlines and bookmarks. Source at [hugoocoto/pdfjoin](https://github.com/hugoocoto/pdfjoin). Depends on [pypdf](https://pypi.org/project/pypdf/).
+
+**Tech stack:** Python 3, pypdf.
+
+**Type:** CLI command-line tool.
 
 ## Install
 
-```lua
 ur.Fetch { user = "hugoocoto", file = "pdfjoin/pdfjoin.lua" }
-```
 
 ## Use
 

@@ -7,28 +7,44 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>pm User Repository</h1>
-    <p>Community registry of user-contributed package definitions for
-       <a href="https://github.com/hugoocoto/pm">pm</a>.</p>
-  </header>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span class="logo">pm User Repos</span>
+      </div>
 
-  <div class="layout">
-    <div class="sidebar-region">
-      <button class="toggle-btn" id="toggle-btn" aria-label="Toggle sidebar">☰</button>
-      <aside id="sidebar">
+      <div class="sidebar-search">
         <input type="search" id="search" class="search" placeholder="Search packages..." aria-label="Search packages">
-        <nav id="package-list" aria-label="Packages"></nav>
-      </aside>
-    </div>
-    <main id="package-detail"></main>
+      </div>
+
+      <nav id="package-list" class="package-list" aria-label="Packages"></nav>
+    </aside>
+
+    <main class="main" id="main">
+      <header class="main-header">
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4.5h12M3 9h12M3 13.5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="header-breadcrumb" id="header-breadcrumb"></div>
+        <div class="header-end">
+          <a href="https://github.com/hugoocoto/pm-user-repository" class="header-gh-link" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 8 1zm0 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.5-2.5a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1h1zM8 13a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 8 13zm-5.5-4.5a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1h1zm.354-5.354a.5.5 0 0 1 .708 0l.707.707a.5.5 0 1 1-.708.708l-.707-.707a.5.5 0 0 1 0-.708zm8.496 8.496a.5.5 0 0 1 0 .708l-.707.707a.5.5 0 1 1-.708-.708l.707-.707a.5.5 0 0 1 .708 0zm.708-8.496a.5.5 0 0 1 0 .708l-.707.707a.5.5 0 1 1-.708-.708l.707-.707a.5.5 0 0 1 .708 0zM3.757 12.243a.5.5 0 0 1 0 .708l-.707.707a.5.5 0 1 1-.708-.708l.707-.707a.5.5 0 0 1 .708 0z"/></svg>
+            <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="content" id="package-detail"></div>
+    </main>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     var BASE = 'https://raw.githubusercontent.com/hugoocoto/pm-user-repository/refs/heads/main';
     var allPackages = [];
-    var sidebarCollapsed = window.matchMedia('(max-width: 767px)').matches;
 
     function pkgId(pkg) { return pkg.user + '/' + pkg.dir; }
 
@@ -38,7 +54,7 @@
       renderList(allPackages);
 
       var search = document.getElementById('search');
-      var sidebar = document.getElementById('package-list');
+      var list = document.getElementById('package-list');
 
       search.addEventListener('input', function () {
         var q = search.value.toLowerCase();
@@ -50,9 +66,9 @@
       });
 
       search.addEventListener('keydown', function (e) {
-        var links = sidebar.querySelectorAll('a');
+        var links = list.querySelectorAll('a');
         if (links.length === 0) return;
-        var idx = Array.prototype.indexOf.call(links, document.querySelector('#package-list a.active'));
+        var idx = Array.prototype.indexOf.call(links, list.querySelector('a.active'));
         if (e.key === 'ArrowDown') {
           e.preventDefault();
           var next = Math.min(idx + 1, links.length - 1);
@@ -66,14 +82,33 @@
         }
       });
 
-      var toggleBtn = document.getElementById('toggle-btn');
-      var sidebarEl = document.getElementById('sidebar');
-      if (sidebarCollapsed) sidebarEl.classList.add('collapsed');
-      toggleBtn.textContent = sidebarCollapsed ? '\u25B6' : '\u2630';
-      toggleBtn.addEventListener('click', function () {
-        sidebarCollapsed = !sidebarCollapsed;
-        sidebarEl.classList.toggle('collapsed');
-        toggleBtn.textContent = sidebarCollapsed ? '\u25B6' : '\u2630';
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        document.getElementById('sidebar').classList.add('collapsed');
+      }
+
+      var sidebar = document.getElementById('sidebar');
+      var toggle = document.getElementById('sidebar-toggle');
+
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        sidebar.classList.toggle('collapsed');
+      });
+
+      document.getElementById('main').addEventListener('click', function () {
+        if (window.matchMedia('(max-width: 768px)').matches && !sidebar.classList.contains('collapsed')) {
+          sidebar.classList.add('collapsed');
+        }
+      });
+
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+
+      document.getElementById('theme-toggle').addEventListener('click', function () {
+        var html = document.documentElement;
+        var theme = html.getAttribute('data-theme') === 'dark' ? '' : 'dark';
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
       });
 
       window.addEventListener('hashchange', loadFromHash);
@@ -83,73 +118,140 @@
 
     function renderList(packages) {
       var nav = document.getElementById('package-list');
-      nav.innerHTML = '<h2>Packages <span class="count">(' + packages.length + ')</span></h2>';
-      var list = document.createElement('ul');
+      nav.innerHTML = '';
       if (packages.length === 0) {
-        var empty = document.createElement('li');
-        empty.className = 'empty';
+        var empty = document.createElement('div');
+        empty.className = 'list-empty';
         empty.textContent = 'No packages found';
-        list.appendChild(empty);
-      } else {
-        for (var i = 0; i < packages.length; i++) {
-          var pkg = packages[i];
-          var li = document.createElement('li');
-          var a = document.createElement('a');
-          a.href = '#' + pkgId(pkg);
-          a.textContent = pkgId(pkg);
-          li.appendChild(a);
-          list.appendChild(li);
-        }
+        nav.appendChild(empty);
+        return;
       }
-      nav.appendChild(list);
+      for (var i = 0; i < packages.length; i++) {
+        var pkg = packages[i];
+        var a = document.createElement('a');
+        a.href = '#' + pkgId(pkg);
+        a.className = 'pkg-list-item';
+
+        var name = document.createElement('span');
+        name.className = 'pkg-list-name';
+        name.textContent = pkgId(pkg);
+        a.appendChild(name);
+
+        var desc = document.createElement('span');
+        desc.className = 'pkg-list-desc';
+        desc.textContent = pkg.description;
+        a.appendChild(desc);
+
+        a.addEventListener('click', function () {
+          document.querySelectorAll('.pkg-list-item').forEach(function (el) {
+            el.classList.remove('active');
+          });
+          this.classList.add('active');
+          if (window.matchMedia('(max-width: 768px)').matches) {
+            document.getElementById('sidebar').classList.add('collapsed');
+          }
+        });
+
+        nav.appendChild(a);
+      }
 
       markActive();
-
-      nav.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () { markActive(); });
-      });
     }
 
     function markActive() {
       var hash = window.location.hash.slice(1);
-      document.querySelectorAll('#package-list a').forEach(function (a) {
+      document.querySelectorAll('.pkg-list-item').forEach(function (a) {
         a.classList.toggle('active', a.getAttribute('href') === '#' + hash);
       });
+      document.getElementById('header-breadcrumb').textContent = hash || '';
+    }
+
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
+    function installCmd(pkg) {
+      return "ur.Fetch { user = \"" + pkg.user + "\", file = \"" + pkg.dir + "/" + pkg.file + "\" }";
     }
 
     async function loadPackage(pkg) {
       var detail = document.getElementById('package-detail');
-      detail.innerHTML = '<p>Loading\u2026</p>';
+      detail.innerHTML = '<div class="loading"><p>Loading...</p></div>';
 
-      var html = '<h2>' + pkgId(pkg) + '</h2>';
+      var fetchCmd = installCmd(pkg);
+      var readmeHtml = '';
 
       try {
         var res = await fetch(BASE + '/' + pkg.user + '/' + pkg.dir + '/README.md');
         if (res.ok) {
           var md = await res.text();
-          html += '<div class="readme">' + marked.parse(md) + '</div>';
-        } else {
-          html += '<dl>' +
-            '<dt>File</dt><dd><code>' + pkg.dir + '/' + pkg.file + '</code></dd>' +
-            '<dt>Description</dt><dd>' + pkg.description + '</dd>' +
-            '</dl>';
+          readmeHtml = marked.parse(md);
         }
-      } catch (e) {
-        html += '<dl>' +
-          '<dt>File</dt><dd><code>' + pkg.dir + '/' + pkg.file + '</code></dd>' +
-          '<dt>Description</dt><dd>' + pkg.description + '</dd>' +
-          '</dl>';
-      }
+      } catch (e) {}
+
+      var html =
+        '<div class="pkg-detail">' +
+          '<div class="pkg-header">' +
+            '<h1 class="pkg-title">' + escapeHtml(pkgId(pkg)) + '</h1>' +
+            '<p class="pkg-desc">' + escapeHtml(pkg.description) + '</p>' +
+            '<div class="pkg-install">' +
+              '<span class="install-code">' + escapeHtml(fetchCmd) + '</span>' +
+              '<button class="copy-btn" data-cmd="' + escapeHtml(fetchCmd) + '">Copy</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="pkg-body">' +
+            '<div class="pkg-body-main">' +
+              (readmeHtml ? '<div class="readme md-content">' + readmeHtml + '</div>' :
+                '<div class="readme readme-empty"><p>No README available.</p></div>') +
+            '</div>' +
+            '<aside class="pkg-meta">' +
+              '<div class="meta-card">' +
+                '<div class="meta-section">' +
+                  '<h3 class="meta-title">About</h3>' +
+                  '<dl class="meta-list">' +
+                    '<dt>Author</dt><dd>' + escapeHtml(pkg.user) + '</dd>' +
+                    '<dt>File</dt><dd>' + escapeHtml(pkg.dir + '/' + pkg.file) + '</dd>' +
+                    '<dt>Description</dt><dd>' + escapeHtml(pkg.description) + '</dd>' +
+                  '</dl>' +
+                '</div>' +
+                '<div class="meta-section">' +
+                  '<h3 class="meta-title">Install</h3>' +
+                  '<div class="meta-install">' +
+                    '<code>' + escapeHtml(fetchCmd) + '</code>' +
+                    '<button class="meta-copy-btn" data-cmd="' + escapeHtml(fetchCmd) + '">Copy</button>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="meta-section meta-section-last">' +
+                  '<h3 class="meta-title">Links</h3>' +
+                  '<a href="https://github.com/' + escapeHtml(pkg.user) + '/' + escapeHtml(pkg.dir) + '" class="meta-link" target="_blank" rel="noopener">GitHub</a>' +
+                '</div>' +
+              '</div>' +
+            '</aside>' +
+          '</div>' +
+        '</div>';
 
       detail.innerHTML = html;
+
+      detail.querySelectorAll('.copy-btn, .meta-copy-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          navigator.clipboard.writeText(this.dataset.cmd).then(function () {
+            this.textContent = 'Copied!';
+            setTimeout(function () { this.textContent = 'Copy'; }.bind(this), 2000);
+          }.bind(this));
+        });
+      });
     }
 
     function loadFromHash() {
       var hash = window.location.hash.slice(1);
       if (!hash) return;
       var pkg = allPackages.find(function(p) { return pkgId(p) === hash; });
-      if (pkg) loadPackage(pkg);
-      markActive();
+      if (pkg) {
+        loadPackage(pkg);
+        markActive();
+      }
     }
 
     init();

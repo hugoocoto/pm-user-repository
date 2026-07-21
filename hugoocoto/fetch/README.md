@@ -1,12 +1,16 @@
 # fetch
 
-suckless-style system information fetcher. Lightweight alternative to neofetch, inspired by macchina and hfetch. Source at [hugoocoto/fetch](https://github.com/hugoocoto/fetch).
+suckless-style system information fetcher, inspired by macchina and hfetch. Lightweight alternative to neofetch. Source at [hugoocoto/fetch](https://github.com/hugoocoto/fetch).
+
+![Screenshot](https://raw.githubusercontent.com/hugoocoto/fetch/main/image.png)
+
+**Tech stack:** C, suckless conventions.
+
+**Type:** CLI command-line tool.
 
 ## Install
 
-```lua
 ur.Fetch { user = "hugoocoto", file = "fetch/fetch.lua" }
-```
 
 ## Use
 

@@ -1,14 +1,14 @@
 # yaci
 
-**Y**et **A**nother **C**alculator **I**nterpreter — an interactive REPL for evaluating mathematical and text expressions with FFI support for calling C library functions.
+Yet Another Calculator Interpreter: an interactive REPL for evaluating mathematical and text expressions. Supports FFI to call C library functions. Source at [hugoocoto/yaci](https://github.com/hugoocoto/yaci).
 
-## Installation
+## Install
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "yaci/yaci.lua" }
 ```
 
-## Usage
+## Use
 
 ```
 yaci                          Interactive REPL

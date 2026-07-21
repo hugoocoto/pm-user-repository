@@ -1,14 +1,14 @@
 # b
 
-A minimal but customizable web browser powered by a Chromium-based engine (Qt6).
+Minimal web browser powered by Qt6 WebEngine. Source at [hugoocoto/b](https://github.com/hugoocoto/b).
 
-## Installation
+## Install
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "b/b.lua" }
 ```
 
-## Usage
+## Use
 
 ```
 b <url>       Open a URL
@@ -26,4 +26,4 @@ b --help      Show help
 | `Ctrl-[` | Go back in history  |
 | `Ctrl-]` | Go forward in history |
 
-Look and keybinds can be customized in `config.h` (requires rebuild).
+Look and keybinds go in `config.h`. Requires a rebuild.

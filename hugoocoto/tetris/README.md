@@ -1,14 +1,14 @@
 # tetris
 
-Play Tetris directly in your terminal! A lightweight, portable implementation written in C.
+Play Tetris in your terminal. Written in C. Source at [hugoocoto/tetris](https://github.com/hugoocoto/tetris).
 
-## Installation
+## Install
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "tetris/tetris.lua" }
 ```
 
-## Usage
+## Use
 
 ```
 tetris
@@ -22,7 +22,7 @@ tetris
 | `a`     | Move left         |
 | `s`     | Move down         |
 | `d`     | Move right        |
-| `Space` | Drop straight down |
+| `Space` | Drop straight     |
 | `Esc`   | Quit              |
 
-Features include score tracking, random color pieces, progressive speed-up, customizable board size and controls.
+Score tracking, random color pieces, progressive speed-up. Board size and controls are customizable.

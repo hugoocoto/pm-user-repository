@@ -1,17 +1,17 @@
 # zrun
 
-A fuzzy-finding application launcher — something between dmenu, rofi, and tofi. Written in Zig with Raylib.
+Fuzzy-finding application launcher, sitting somewhere between dmenu, rofi, and tofi. Written in Zig with [Raylib](https://www.raylib.com/). Source at [hugoocoto/zrun](https://github.com/hugoocoto/zrun).
 
-## Installation
+## Install
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "zrun/zrun.lua" }
 ```
 
-## Usage
+## Use
 
 ```
 zrun
 ```
 
-Opens a search bar to fuzzy-find and launch applications. Sort order is based on a matching-gap heuristic.
+Opens a search bar to fuzzy-find and launch applications. Sort order uses a matching-gap heuristic.

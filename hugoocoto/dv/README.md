@@ -1,14 +1,14 @@
 # dv
 
-A visual, terminal-based directory viewer and batch file manager with regex-powered operations.
+Terminal-based directory viewer and batch file manager with regex-powered operations. Source at [hugoocoto/dv](https://github.com/hugoocoto/dv).
 
-## Installation
+## Install
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "dv/dv.lua" }
 ```
 
-## Usage
+## Use
 
 Run `dv` to open the current directory. Operations use POSIX BRE patterns:
 

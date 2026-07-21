@@ -1,21 +1,17 @@
 # pdfjoin
 
-A command-line tool to merge multiple PDF files into a single document while preserving existing outlines/bookmarks.
+Merge multiple PDF files into one, preserving existing outlines and bookmarks. Written in Python. Source at [hugoocoto/pdfjoin](https://github.com/hugoocoto/pdfjoin). Depends on [pypdf](https://pypi.org/project/pypdf/).
 
-## Installation
+## Install
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "pdfjoin/pdfjoin.lua" }
 ```
 
-## Usage
+## Use
 
 ```
 pdfjoin <output.pdf> <input1.pdf> <input2.pdf> ...
 ```
 
-Features:
-- Preserves existing PDF outlines/bookmarks
-- Each input file added as a top-level bookmark
-- Skips missing or non-PDF files with a warning
-- No configuration needed
+Each input file becomes a top-level bookmark. Missing or non-PDF files are skipped with a warning. No configuration needed.

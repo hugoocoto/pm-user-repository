@@ -1,17 +1,17 @@
 # wallpaper
 
-A desktop wallpaper utility backed by swaybg — set and manage wallpapers on Wayland compositors.
+Set a desktop wallpaper on Wayland compositors. Backed by [swaybg](https://github.com/swaywm/swaybg). Built from the [wallpapers](https://github.com/hugoocoto/wallpapers) repo.
 
-## Installation
+## Install
 
 ```lua
 ur.Fetch { user = "hugoocoto", file = "wallpaper/wallpaper.lua" }
 ```
 
-## Usage
+## Use
 
 ```
 wallpaper <image-path>
 ```
 
-Sets the given image as the desktop wallpaper using swaybg.
+Supports any image format swaybg handles. Works on Sway, Hyprland, and any compositor implementing `wlr-layer-shell`.

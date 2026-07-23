@@ -8,10 +8,6 @@ Terminal-based directory viewer and batch file manager with regex-powered operat
 
 **Type:** CLI/TUI command-line tool.
 
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "dv/dv.lua" }
-
 ## Use
 
 Run `dv` to open the current directory. Operations use POSIX BRE patterns.

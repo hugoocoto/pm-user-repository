@@ -8,37 +8,21 @@
 </head>
 <body>
   <div class="app">
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <span class="logo">pm User Repos</span>
-      </div>
-
-      <div class="sidebar-search">
-        <input type="search" id="search" class="search" placeholder="Search packages..." aria-label="Search packages">
-      </div>
-
-      <nav id="package-list" class="package-list" aria-label="Packages"></nav>
-    </aside>
-
-    <main class="main" id="main">
-      <header class="main-header">
-        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4.5h12M3 9h12M3 13.5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <header class="top-header">
+      <a href="#" class="top-logo">pm User Repository</a>
+      <span class="top-breadcrumb" id="top-breadcrumb"></span>
+      <div class="top-end">
+        <a href="https://github.com/hugoocoto/pm-user-repository" class="top-gh-link" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 8 1zm0 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.5-2.5a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1h1zM8 13a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 8 13zm-5.5-4.5a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1h1zm.354-5.354a.5.5 0 0 1 .708 0l.707.707a.5.5 0 1 1-.708.708l-.707-.707a.5.5 0 0 1 0-.708zm8.496 8.496a.5.5 0 0 1 0 .708l-.707.707a.5.5 0 1 1-.708-.708l.707-.707a.5.5 0 0 1 .708 0zm.708-8.496a.5.5 0 0 1 0 .708l-.707.707a.5.5 0 1 1-.708-.708l.707-.707a.5.5 0 0 1 .708 0zM3.757 12.243a.5.5 0 0 1 0 .708l-.707.707a.5.5 0 1 1-.708-.708l.707-.707a.5.5 0 0 1 .708 0z"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/></svg>
         </button>
-        <div class="header-breadcrumb" id="header-breadcrumb"></div>
-        <div class="header-end">
-          <a href="https://github.com/hugoocoto/pm-user-repository" class="header-gh-link" target="_blank" rel="noopener" aria-label="GitHub">
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-          </a>
-          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-            <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 8 1zm0 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.5-2.5a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1h1zM8 13a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 8 13zm-5.5-4.5a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1h1zm.354-5.354a.5.5 0 0 1 .708 0l.707.707a.5.5 0 1 1-.708.708l-.707-.707a.5.5 0 0 1 0-.708zm8.496 8.496a.5.5 0 0 1 0 .708l-.707.707a.5.5 0 1 1-.708-.708l.707-.707a.5.5 0 0 1 .708 0zm.708-8.496a.5.5 0 0 1 0 .708l-.707.707a.5.5 0 1 1-.708-.708l.707-.707a.5.5 0 0 1 .708 0zM3.757 12.243a.5.5 0 0 1 0 .708l-.707.707a.5.5 0 1 1-.708-.708l.707-.707a.5.5 0 0 1 .708 0z"/></svg>
-            <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/></svg>
-          </button>
-        </div>
-      </header>
+      </div>
+    </header>
 
-      <div class="content" id="package-detail"></div>
-    </main>
+    <main class="content" id="content"></main>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -51,54 +35,6 @@
     async function init() {
       var res = await fetch(BASE + '/packages.json');
       allPackages = (await res.json()).packages;
-      renderList(allPackages);
-
-      var search = document.getElementById('search');
-      var list = document.getElementById('package-list');
-
-      search.addEventListener('input', function () {
-        var q = search.value.toLowerCase();
-        var filtered = allPackages.filter(function (p) {
-          return pkgId(p).toLowerCase().includes(q)
-              || p.description.toLowerCase().includes(q);
-        });
-        renderList(filtered);
-      });
-
-      search.addEventListener('keydown', function (e) {
-        var links = list.querySelectorAll('a');
-        if (links.length === 0) return;
-        var idx = Array.prototype.indexOf.call(links, list.querySelector('a.active'));
-        if (e.key === 'ArrowDown') {
-          e.preventDefault();
-          var next = Math.min(idx + 1, links.length - 1);
-          links[next].focus();
-          links[next].click();
-        } else if (e.key === 'ArrowUp') {
-          e.preventDefault();
-          var prev = Math.max(idx - 1, 0);
-          links[prev].focus();
-          links[prev].click();
-        }
-      });
-
-      if (window.matchMedia('(max-width: 768px)').matches) {
-        document.getElementById('sidebar').classList.add('collapsed');
-      }
-
-      var sidebar = document.getElementById('sidebar');
-      var toggle = document.getElementById('sidebar-toggle');
-
-      toggle.addEventListener('click', function (e) {
-        e.stopPropagation();
-        sidebar.classList.toggle('collapsed');
-      });
-
-      document.getElementById('main').addEventListener('click', function () {
-        if (window.matchMedia('(max-width: 768px)').matches && !sidebar.classList.contains('collapsed')) {
-          sidebar.classList.add('collapsed');
-        }
-      });
 
       if (localStorage.getItem('theme') === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
@@ -111,59 +47,19 @@
         localStorage.setItem('theme', theme);
       });
 
-      window.addEventListener('hashchange', loadFromHash);
-      loadFromHash();
-      if (!window.location.hash && allPackages.length) loadPackage(allPackages[0]);
+      window.addEventListener('hashchange', navigate);
+      navigate();
     }
 
-    function renderList(packages) {
-      var nav = document.getElementById('package-list');
-      nav.innerHTML = '';
-      if (packages.length === 0) {
-        var empty = document.createElement('div');
-        empty.className = 'list-empty';
-        empty.textContent = 'No packages found';
-        nav.appendChild(empty);
-        return;
-      }
-      for (var i = 0; i < packages.length; i++) {
-        var pkg = packages[i];
-        var a = document.createElement('a');
-        a.href = '#' + pkgId(pkg);
-        a.className = 'pkg-list-item';
-
-        var name = document.createElement('span');
-        name.className = 'pkg-list-name';
-        name.textContent = pkgId(pkg);
-        a.appendChild(name);
-
-        var desc = document.createElement('span');
-        desc.className = 'pkg-list-desc';
-        desc.textContent = pkg.description;
-        a.appendChild(desc);
-
-        a.addEventListener('click', function () {
-          document.querySelectorAll('.pkg-list-item').forEach(function (el) {
-            el.classList.remove('active');
-          });
-          this.classList.add('active');
-          if (window.matchMedia('(max-width: 768px)').matches) {
-            document.getElementById('sidebar').classList.add('collapsed');
-          }
-        });
-
-        nav.appendChild(a);
-      }
-
-      markActive();
-    }
-
-    function markActive() {
+    function navigate() {
       var hash = window.location.hash.slice(1);
-      document.querySelectorAll('.pkg-list-item').forEach(function (a) {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + hash);
-      });
-      document.getElementById('header-breadcrumb').textContent = hash || '';
+      var bc = document.getElementById('top-breadcrumb');
+      if (!hash) { bc.textContent = ''; renderHome(); return; }
+      if (hash === 'search') { bc.textContent = 'Search'; renderSearch(); return; }
+      var pkg = allPackages.find(function (p) { return pkgId(p) === hash; });
+      if (pkg) { bc.textContent = hash; renderPackage(pkg); return; }
+      bc.textContent = '';
+      renderHome();
     }
 
     function escapeHtml(str) {
@@ -172,17 +68,112 @@
       return div.innerHTML;
     }
 
+    function renderHome() {
+      var content = document.getElementById('content');
+      var html =
+        '<div class="home-page">' +
+          '<div class="home-hero">' +
+            '<h1>pm User Repository</h1>' +
+            '<p>Community registry of package definitions for <a href="https://github.com/hugoocoto/pm" target="_blank" rel="noopener">pm</a>.</p>' +
+            '<a href="#search" class="home-cta">Browse ' + allPackages.length + ' packages</a>' +
+          '</div>' +
+
+          '<div class="home-section">' +
+            '<h2 class="home-section-title">What is pm?</h2>' +
+            '<p>pm is a minimal package manager for Linux. You write Lua configuration files describing how to download, build, and install software. pm handles the fetch, build, and install cycle, symlinks binaries into your PATH, and can update them when new versions are released.</p>' +
+            '<p><a href="https://github.com/hugoocoto/pm" class="home-link" target="_blank" rel="noopener">pm on GitHub ></a></p>' +
+          '</div>' +
+
+          '<div class="home-section">' +
+            '<h2 class="home-section-title">Package Repository</h2>' +
+            '<p>This repository hosts Lua package definitions consumed by pm. Each <code>.lua</code> file returns a table describing a package: its source URL, build steps, and artifact name. The <code>ur</code> module downloads these definitions over HTTPS, loads them in text-only mode (blocking bytecode injection), and executes them safely.</p>' +
+          '</div>' +
+
+          '<div class="home-section">' +
+            '<h2 class="home-section-title">How to use</h2>' +
+            '<p>Download the <code>ur.lua</code> module into your pm config directory:</p>' +
+            '<div class="home-code"><pre>mkdir -p ~/.config/pm && curl -o ~/.config/pm/ur.lua https://raw.githubusercontent.com/hugoocoto/pm-user-repository/refs/heads/main/ur.lua</pre></div>' +
+            '<p>Include it in your pm config (<code>init.lua</code>):</p>' +
+            '<div class="home-code"><pre>local ur = require("ur")\n\nPackages = {\n    ur.Fetch { user = "hugoocoto", file = "nvim-nightly/nvim.lua" },\n    ur.Fetch { user = "hugoocoto", file = "helium/helium.lua" },\n}</pre></div>' +
+          '</div>' +
+
+          '<div class="home-section">' +
+            '<h2 class="home-section-title">Package format</h2>' +
+            '<p>Each <code>.lua</code> file must return a table with:</p>' +
+            '<table class="home-pkg-table">' +
+              '<thead><tr><th>Field</th><th>Required</th><th>Description</th></tr></thead>' +
+              '<tbody>' +
+                '<tr><td><code>url</code></td><td>Yes</td><td>Download URL for source archive or binary</td></tr>' +
+                '<tr><td><code>build</code></td><td>Yes</td><td>Shell commands to produce the executable</td></tr>' +
+                '<tr><td><code>name</code></td><td>No</td><td>Filename to save the download as (inferred from URL if absent)</td></tr>' +
+                '<tr><td><code>artifact</code></td><td>Yes*</td><td>Executable name from build (falls back to <code>name</code>)</td></tr>' +
+                '<tr><td><code>last_modified_cmd</code></td><td>No</td><td>Command to check remote Last-Modified date</td></tr>' +
+              '</tbody>' +
+            '</table>' +
+          '</div>' +
+
+          '<div class="home-section">' +
+            '<h2 class="home-section-title">Contribute</h2>' +
+            '<p>Packages are organized by GitHub username. To add your own:</p>' +
+            '<ol>' +
+              '<li>Fork this repository.</li>' +
+              '<li>Create a directory named after your GitHub username.</li>' +
+              '<li>Add your <code>.lua</code> file(s) and optionally a <code>README.md</code>.</li>' +
+              '<li>Update <code>packages.json</code> with your entry.</li>' +
+              '<li>Open a pull request. CI validates Lua syntax and root structure.</li>' +
+            '</ol>' +
+            '<p><a href="https://github.com/hugoocoto/pm-user-repository" class="home-link" target="_blank" rel="noopener">pm-user-repository on GitHub ></a></p>' +
+          '</div>' +
+        '</div>';
+      content.innerHTML = html;
+    }
+
+    function renderSearch() {
+      var content = document.getElementById('content');
+      content.innerHTML =
+        '<div class="search-page">' +
+          '<div class="search-bar">' +
+            '<input type="search" id="search-input" class="search-input" placeholder="Search packages..." autofocus>' +
+          '</div>' +
+          '<div class="search-results" id="search-results"></div>' +
+        '</div>';
+
+      var input = document.getElementById('search-input');
+      var results = document.getElementById('search-results');
+
+      function run() {
+        var q = input.value.toLowerCase();
+        var filtered = q ? allPackages.filter(function (p) {
+          return pkgId(p).toLowerCase().includes(q) || p.description.toLowerCase().includes(q);
+        }) : allPackages;
+        if (filtered.length === 0) {
+          results.innerHTML = '<div class="search-empty">No packages found</div>';
+          return;
+        }
+        var html = '';
+        for (var i = 0; i < filtered.length; i++) {
+          var p = filtered[i];
+          html += '<a href="#' + pkgId(p) + '" class="search-item">' +
+            '<span class="search-item-name">' + escapeHtml(pkgId(p)) + '</span>' +
+            '<span class="search-item-desc">' + escapeHtml(p.description) + '</span>' +
+            '</a>';
+        }
+        results.innerHTML = html;
+      }
+
+      input.addEventListener('input', run);
+      run();
+    }
+
     function installCmd(pkg) {
       return "ur.Fetch { user = \"" + pkg.user + "\", file = \"" + pkg.dir + "/" + pkg.file + "\" }";
     }
 
-    async function loadPackage(pkg) {
-      var detail = document.getElementById('package-detail');
-      detail.innerHTML = '<div class="loading"><p>Loading...</p></div>';
+    async function renderPackage(pkg) {
+      var content = document.getElementById('content');
+      content.innerHTML = '<div class="loading"><p>Loading...</p></div>';
 
-      var fetchCmd = installCmd(pkg);
       var readmeHtml = '';
-
       try {
         var res = await fetch(BASE + '/' + pkg.user + '/' + pkg.dir + '/README.md');
         if (res.ok) {
@@ -191,6 +182,7 @@
         }
       } catch (e) {}
 
+      var fetchCmd = installCmd(pkg);
       var html =
         '<div class="pkg-detail">' +
           '<div class="pkg-header">' +
@@ -232,9 +224,9 @@
           '</div>' +
         '</div>';
 
-      detail.innerHTML = html;
+      content.innerHTML = html;
 
-      detail.querySelectorAll('.copy-btn, .meta-copy-btn').forEach(function (btn) {
+      content.querySelectorAll('.copy-btn, .meta-copy-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
           navigator.clipboard.writeText(this.dataset.cmd).then(function () {
             this.textContent = 'Copied!';
@@ -242,16 +234,6 @@
           }.bind(this));
         });
       });
-    }
-
-    function loadFromHash() {
-      var hash = window.location.hash.slice(1);
-      if (!hash) return;
-      var pkg = allPackages.find(function(p) { return pkgId(p) === hash; });
-      if (pkg) {
-        loadPackage(pkg);
-        markActive();
-      }
     }
 
     init();

@@ -6,10 +6,6 @@ Custom build of the [suckless simple terminal](https://st.suckless.org/) with al
 
 **Type:** GUI terminal emulator.
 
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "st/st.lua" }
-
 ## Use
 
 ```

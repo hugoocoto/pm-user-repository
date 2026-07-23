@@ -6,10 +6,6 @@ Yet Another Calculator Interpreter: an interactive REPL for evaluating mathemati
 
 **Type:** CLI REPL interpreter.
 
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "yaci/yaci.lua" }
-
 ## Use
 
 ```

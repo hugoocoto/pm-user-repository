@@ -8,10 +8,6 @@ suckless-style system information fetcher, inspired by macchina and hfetch. Ligh
 
 **Type:** CLI command-line tool.
 
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "fetch/fetch.lua" }
-
 ## Use
 
 ```

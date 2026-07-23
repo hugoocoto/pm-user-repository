@@ -8,10 +8,6 @@ Visual Cell Editor: a TUI spreadsheet editor for the terminal. Edit CSV-like gri
 
 **Type:** TUI application.
 
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "vicel/vicel.lua" }
-
 ## Use
 
 ```

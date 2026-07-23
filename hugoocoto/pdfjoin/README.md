@@ -6,10 +6,6 @@ Merge multiple PDF files into one while preserving existing outlines and bookmar
 
 **Type:** CLI command-line tool.
 
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "pdfjoin/pdfjoin.lua" }
-
 ## Use
 
 ```

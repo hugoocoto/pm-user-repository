@@ -8,10 +8,6 @@ Minimal web browser built on Qt6 WebEngine. Source at [hugoocoto/b](https://gith
 
 **Type:** GUI desktop application.
 
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "b/b.lua" }
-
 ## Use
 
 ```

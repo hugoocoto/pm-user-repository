@@ -8,10 +8,6 @@ Play Tetris in your terminal. Source at [hugoocoto/tetris](https://github.com/hu
 
 **Type:** CLI terminal game.
 
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "tetris/tetris.lua" }
-
 ## Use
 
 ```

@@ -6,10 +6,6 @@ Set a desktop wallpaper on Wayland compositors. Backed by [swaybg](https://githu
 
 **Type:** CLI command-line tool.
 
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "wallpaper/wallpaper.lua" }
-
 ## Use
 
 ```

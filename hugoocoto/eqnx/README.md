@@ -7,7 +7,3 @@ Plugin-based application environment and Wayland graphics library. Composes appl
 **Tech stack:** C, Wayland.
 
 **Type:** Library/framework for composable desktop applications.
-
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "eqnx/eqnx.lua" }

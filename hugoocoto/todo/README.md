@@ -10,10 +10,6 @@ Command-line task manager for the terminal. Add tasks with dates, retrieve them 
 
 **Type:** CLI/TUI command-line tool with web UI.
 
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "todo/todo.lua" }
-
 ## Use
 
 ```

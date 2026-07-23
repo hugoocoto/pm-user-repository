@@ -6,10 +6,6 @@ Bleeding-edge nightly build of [Neovim](https://neovim.io/), distributed as an A
 
 **Type:** CLI terminal editor.
 
-## Install
-
-ur.Fetch { user = "hugoocoto", file = "nvim-nightly/nvim.lua" }
-
 ## Use
 
 ```

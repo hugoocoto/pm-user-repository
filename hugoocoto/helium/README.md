@@ -6,8 +6,8 @@ Third-party desktop client for the [Imput](https://imput.com) browser. Pre-built
 
 **Type:** GUI desktop application.
 
-## Install
+## Use
 
-ur.Fetch { user = "hugoocoto", file = "helium/helium.lua" }
-
-Installs the AppImage and makes it executable. Run `helium` to launch.
+```
+helium
+```

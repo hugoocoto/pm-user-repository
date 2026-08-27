@@ -1,3 +1,7 @@
+---
+[LINK](https://hugoocoto.github.io/pm-user-repository/docs/)
+---
+
 # pm User Repository
 
 Community registry of package definitions for [pm](https://github.com/hugoocoto/pm).

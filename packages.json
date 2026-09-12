@@ -10,6 +10,7 @@
     { "user": "hugoocoto", "dir": "st",          "file": "st.lua",          "description": "st simple terminal" },
     { "user": "hugoocoto", "dir": "tetris",      "file": "tetris.lua",      "description": "tetris" },
     { "user": "hugoocoto", "dir": "todo",        "file": "todo.lua",        "description": "todo" },
+    { "user": "hugoocoto", "dir": "tui-do",      "file": "tui-do.lua",      "description": "tui-do task manager" },
     { "user": "hugoocoto", "dir": "vicel",       "file": "vicel.lua",       "description": "vicel" },
     { "user": "hugoocoto", "dir": "wallpaper",   "file": "wallpaper.lua",   "description": "wallpaper binary" },
     { "user": "hugoocoto", "dir": "yaci",        "file": "yaci.lua",        "description": "yaci" },

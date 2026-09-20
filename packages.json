@@ -5,6 +5,7 @@
     { "user": "hugoocoto", "dir": "eqnx",        "file": "eqnx.lua",        "description": "eqnx" },
     { "user": "hugoocoto", "dir": "fetch",       "file": "fetch.lua",       "description": "fetch" },
     { "user": "hugoocoto", "dir": "helium",      "file": "helium.lua",      "description": "Helium 0.14.5.1 AppImage" },
+    { "user": "hugoocoto", "dir": "infinipaint", "file": "infinipaint.lua", "description": "InfiniPaint painting application" },
     { "user": "hugoocoto", "dir": "isf",         "file": "isf.lua",         "description": "isf two-way folder sync over ssh" },
     { "user": "hugoocoto", "dir": "nvim-nightly","file": "nvim.lua",        "description": "Neovim nightly AppImage" },
     { "user": "hugoocoto", "dir": "pdfjoin",     "file": "pdfjoin.lua",     "description": "pdfjoin PDF merging tool" },

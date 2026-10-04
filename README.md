@@ -58,11 +58,13 @@ Packages = {
 | hugoocoto | `mybar/mybar.lua` | `mybar` Wayland status bar |
 | hugoocoto | `nvim-nightly/nvim.lua` | Neovim nightly AppImage |
 | hugoocoto | `pdfjoin/pdfjoin.lua` | `pdfjoin` PDF merger |
+| hugoocoto | `send2kodi/send2kodi.lua` | `send2kodi` send links and local media to Kodi |
 | hugoocoto | `st/st.lua` | `st` simple terminal |
 | hugoocoto | `tetris/tetris.lua` | `tetris` terminal game |
 | hugoocoto | `todo/todo.lua` | `todo` task manager |
 | hugoocoto | `vicel/vicel.lua` | `vicel` spreadsheet editor |
 | hugoocoto | `wallpaper/wallpaper.lua` | `wallpaper` for Wayland |
+| hugoocoto | `wl2kodi/wl2kodi.lua` | `wl2kodi` Wayland screen mirroring to Kodi |
 | hugoocoto | `yaci/yaci.lua` | `yaci` calculator REPL |
 | hugoocoto | `zrun/zrun.lua` | `zrun` fuzzy launcher |
 

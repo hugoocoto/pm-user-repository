@@ -55,6 +55,7 @@ Packages = {
 | hugoocoto | `helium/helium.lua` | Helium 0.14.5.1 AppImage |
 | hugoocoto | `infinipaint/infinipaint.lua` | InfiniPaint painting application |
 | hugoocoto | `isf/isf.lua` | `isf` two-way folder sync over ssh |
+| hugoocoto | `mybar/mybar.lua` | `mybar` Wayland status bar |
 | hugoocoto | `nvim-nightly/nvim.lua` | Neovim nightly AppImage |
 | hugoocoto | `pdfjoin/pdfjoin.lua` | `pdfjoin` PDF merger |
 | hugoocoto | `st/st.lua` | `st` simple terminal |

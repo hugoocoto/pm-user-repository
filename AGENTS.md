@@ -28,8 +28,9 @@ The default `Github` build command is: `tar xzf <repo>.tar.gz && cp -fr <repo>-<
 
 ## Architecture
 
-- `ur.lua` at root is the core runtime: `Fetch()` downloads a Lua file over HTTPS, compiles it in text-only mode (`load(body, _, "t")` — blocks bytecode injection), `pcall`s it, and returns the table.
-- `ur.Github()` accepts a token from `gh auth token` to avoid GitHub API rate limiting (5000 vs 60 req/hr).
+- `ur.lua` at root is the core runtime: `Fetch()` downloads a Lua file with `curl` (not LuaSec, whose `https.request` skips TLS verification by default), compiles it in text-only mode (`load(body, _, "t")` — blocks bytecode injection), runs it, and returns the table.
+- `Fetch()` caches files in `~/.cache/pm/ur/<git blob sha>`, plus `tree` (path → blob sha at a commit). Each run resolves the latest commit via `.git/info/refs` (no API rate limit); the tree is re-downloaded from the API only when the commit changed.
+- `ur.Github()`'s `last_modified_cmd` reads a token from `GH_TOKEN` or `gh auth token` at run time and passes it to curl on stdin, to avoid GitHub API rate limiting (5000 vs 60 req/hr).
 - Docs site (`docs/`) is hand-written static HTML/CSS (not generated).
 
 ## Current state

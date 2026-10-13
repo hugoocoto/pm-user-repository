@@ -16,10 +16,10 @@ The `ur` module (user repository) lets pm install packages from Lua definitions 
 
 1. You download `ur.lua` into your pm config directory.
 2. Your `init.lua` requires it and calls `ur.Fetch { ... }` for each package.
-3. `ur.Fetch` downloads the Lua file from this repo over HTTPS, loads it in text-only mode (blocks bytecode injection), and `pcall`s it to get the table.
+3. `ur.Fetch` downloads the Lua file from this repo with `curl` (TLS certificates verified), loads it in text-only mode (blocks bytecode injection), and runs it to get the table. Files are cached in `~/.cache/pm/ur`: each run checks the latest commit with one request, and only files whose content changed are downloaded again. Offline, the cache is used.
 4. pm consumes the table to handle download, build, and install.
 
-The `ur.Github` helper automates the common case: fetch a tarball from a GitHub repo, extract it, run `make` (or a custom build command), and return the artifact path. It supports `gh auth token` for authenticated API requests (5000 req/hr vs 60 unauthenticated).
+The `ur.Github` helper automates the common case: fetch a tarball from a GitHub repo, extract it, run `make` (or a custom build command), and return the artifact path. Its update check uses the token from `GH_TOKEN` or `gh auth token`, when available, for authenticated API requests (5000 req/hr vs 60 unauthenticated).
 
 ## Usage
 
